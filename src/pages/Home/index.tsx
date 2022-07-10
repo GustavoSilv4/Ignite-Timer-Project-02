@@ -88,6 +88,12 @@ export function Home() {
   const minutes = String(minutesAmount).padStart(2, '0')
   const seconds = String(secondsAmount).padStart(2, '0')
 
+  useEffect(() => {
+    if (activeCycle) {
+      document.title = `Ignite Timer (${minutes} : ${seconds})`
+    }
+  }, [minutes, seconds, activeCycle])
+
   // console.log(formState.errors.minutesAmount.message) // Pegar errors de validacao do formulario
 
   const task = watch('task')
